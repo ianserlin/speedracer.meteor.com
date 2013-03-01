@@ -1,0 +1,31 @@
+/* CSS declarations go here */
+body, html {
+	width: 100%;
+	height: 100%;
+}
+
+.desktopUI, .mobileUI {
+	width: 100%;
+	height: 100%;
+}
+
+#map {
+	width: 100%;
+	height: 100%;	
+}
+
+#map img {
+	max-width: none;
+}
+
+.mapContainer {
+	height: 600px;
+}
+
+.login {
+	text-align: center;
+}
+
+.btn-huge {
+	font-size: 40px;
+}

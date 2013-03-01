@@ -1,0 +1,75 @@
+<head>
+  <title>speedracer</title>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMpm22XXc6cONUo5Hff8g4ChVcOs9ndSo&sensor=true"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      {{> login}}
+    </div>
+    {{> mobileUI}}
+    {{> desktopUI}}
+  </div>
+</body>
+
+<template name="login">
+  <div class="login">
+    {{loginButtons align="right"}}
+  </div>
+</template>
+
+<template name="desktopUI">
+  <div class="desktopUI">
+    <div class="row">
+      <div class="span3">
+        <ul class="unstyled">
+          {{#each races}}
+            <a href='#' data-race='{{_id}}' class="recap btn btn-warning">Race starting: {{checkpoints.[0].timestamp}}</a>
+          {{/each}}
+        </ul>
+        <div class="distance">
+        </div>
+        <div class="time">
+        </div>
+        <div class="checkpoints">
+        </div>
+      </div>
+      <div class="span9 mapContainer">
+        <div id="map"></div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="mobileUI">
+  <div class="mobileUI">
+    <div class="row">
+      {{#if currentUser}}
+        {{> controls}}
+      {{/if}}
+    </div>
+    <div class="row">
+      {{> checkpoints}}
+    </div>
+  </div>
+</template>
+
+<template name="controls">
+  <br/>
+  <br/>
+  <br/>
+  <button id="startRace" class="btn-huge btn-success btn-large">Start Race</button>
+  <br/>
+  <br/>
+  <br/>
+  <button id="endRace" class="btn-huge btn-danger btn-large">End Race</button>
+  <br/>
+  <br/>
+  {{raceCount}} races so far
+</template>
+
+<template name="checkpoints">
+  <ol id="checkpoints"></ol>
+</template>
